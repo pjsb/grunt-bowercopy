@@ -29,6 +29,10 @@ module.exports = function (grunt) {
 		bowerConfigPath = path.join(bowerrc.cwd, bowerConfigPath);
 	}
 
+	if(process.env.BOWERRC) {
+		bowerConfigPath = process.env.BOWERRC
+	}
+	
 	log.writeln('bowerConfigPath: ', bowerConfigPath);
 
 	// Get all modules
@@ -275,12 +279,7 @@ module.exports = function (grunt) {
 		options.destPrefix = path.normalize(options.destPrefix);
 
 		verbose.writeln('Using srcPrefix: ' + options.srcPrefix);
-		verbose.writeln('Using destPrefix: ' + options.destPrefix);
-
-		if(options.bowerConfigPath) {
-			bowerConfigPath = options.bowerConfigPath
-		}
-		log.writeln('bowerConfigPath (MAIN): ', bowerConfigPath);
+		verbose.writeln('Using destPrefix: ' + options.destPrefix);		
 
 		// Build the file list
 		files = convert(files);
