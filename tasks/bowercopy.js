@@ -29,6 +29,8 @@ module.exports = function (grunt) {
 		bowerConfigPath = path.join(bowerrc.cwd, bowerConfigPath);
 	}
 
+	log.writeln('bowerConfigPath: ', bowerConfigPath);
+
 	// Get all modules
 	var bowerConfig = grunt.file.readJSON(bowerConfigPath);
 	var allModules = Object.keys(
@@ -278,6 +280,7 @@ module.exports = function (grunt) {
 		if(options.bowerConfigPath) {
 			bowerConfigPath = options.bowerConfigPath
 		}
+		log.writeln('bowerConfigPath (MAIN): ', bowerConfigPath);
 
 		// Build the file list
 		files = convert(files);
