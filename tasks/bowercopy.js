@@ -275,6 +275,10 @@ module.exports = function (grunt) {
 		verbose.writeln('Using srcPrefix: ' + options.srcPrefix);
 		verbose.writeln('Using destPrefix: ' + options.destPrefix);
 
+		if(options.bowerConfigPath) {
+			bowerConfigPath = options.bowerConfigPath
+		}
+
 		// Build the file list
 		files = convert(files);
 
